@@ -895,27 +895,23 @@ public class IntArraySet extends IntSet
 
 
    public IntSet intersection(IntSet set2)
-
    {
-
        int [] set2_array = new int [size()];
-      IntSet minused_set = new IntArraySet();
+      IntSet intersection_set = new IntArraySet();
 
           for(int i = 0 ; i < size(); i++){
-           minused_set.add(toArray()[i]);
+           intersection_set.add(toArray()[i]);
            }
            
           for(int j = 0 ; j < set2.size(); j++){
              set2_array[j] = toArray()[j];
            }
               for(int j = 0 ; j < set2_array.length; j++){
-                 if(minused_set.contains(set2_array[j])){
-                   minused_set.remove(set2_array[j]);
+                 if(intersection_set.contains(set2_array[j])){
+                   intersection_set.remove(set2_array[j]);
                  }
-                             
-        
        }
-    return  minused_set;        
+    return  intersection_set;        
      }   
 
 /*
@@ -985,10 +981,10 @@ public class IntArraySet extends IntSet
            }
            for(int j = 0 ; j < set2_array.length; j++){
               if(minused_set.contains(set2_array[j])){
+               //if(minused_set==set2_array[j]){
                 minused_set.remove(set2_array[j]);
+               
               }
-                             
-        
        }
     return  minused_set;
 }
